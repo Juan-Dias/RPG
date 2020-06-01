@@ -1,3 +1,4 @@
+package RPG;
 import java.util.Scanner;
 
 public class projetoPI {
@@ -41,6 +42,11 @@ public class projetoPI {
 				System.out.println("Opção invalida!!!\n");
 				break;
 			}
+			
+			
+			}
+		if(menu() ==  3) {
+			System.out.println("");
 		}
 
 		return opcaoDigitada;
@@ -239,7 +245,7 @@ public class projetoPI {
 
 			if (resposta1Desafio == 3) {
 				System.out
-						.println("Parabéns você conseguiu conquistar a bolsa de estudos tão deseja por Ana Clara!!\n");
+						.println("Parabéns você conseguiu realizar a prova com exatidão, Ana Clara pode continuara com sua jornada novamente!!\n");
 				System.out.println(
 						"--------------------------------------------------------------------------------------------\n");
 				break;
@@ -262,7 +268,23 @@ public class projetoPI {
 
 		return acertou;
 	}
+	
+	static void historiaSegundoDesafio() {
+		System.out.println("Após seu primeiro desafio concluído, Ana Clara se sente mais segura, podendo agora continuar seus estudos e assim alcançar seu objetivo."
+				+ "Mas oque ela não sabe é que seus colegas de classe tinham todos ido muito mal naquela prova, e com isso todos começariam a persegui-la."
+				+ "Por ser de familía humilde e simples, em uma escola onde todos eram da alta sociedade, Ana Clara cada vez mais começou a sofrer bullying."
+				+ "Depois de uma semana sendo motivo de chacota e zoação, um dos colegas que faziam parte desses que caçoavam dela, finamente desafia ela para um combate onde iriam descobrir quem era"
+				+ "o mais inteligente.\n");
+		System.out.println("Esse é o momento de Ana Clara provar seu valor, com essa vitória ela poderar conquistar o respeito de seus colegas de classe.\n");
+		System.out.println("Vença o desafio para que ela possa continuar sua jornada.");
+	}
 
+	static boolean segundoDesafio() {
+		System.out.println("(a^3 * b^3 * b^7 * a^6) / (b^3 * a^5)");
+		
+		return true;
+	}
+	
 	public static void main(String[] args) {
 
 		if (menu() == 1) {
@@ -272,8 +294,11 @@ public class projetoPI {
 			historiaPrimeiroDesafio();
 		}
 		if (primeiroDesafio() == true) {
-			System.out.println("********EM MANUTENÇÃO**********");
+			historiaSegundoDesafio();
 		}
+		
+		
+		
 
 		sc.close();
 	}
