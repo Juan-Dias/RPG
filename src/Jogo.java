@@ -1,5 +1,3 @@
-package Brenno;
-
 import java.util.Scanner;
 
 public class projetoPI {
@@ -11,14 +9,13 @@ public class projetoPI {
 
 		int opcaoDigitada = 0;
 
-		while ((opcaoDigitada != 4) && (opcaoDigitada != 1)) { // laço de repetição usado para repetir o menu enquanto
+		while ((opcaoDigitada != 3) && (opcaoDigitada != 1)) { // laço de repetição usado para repetir o menu enquanto
 																// não escolher as opções "jogar" e "sair".
 
 			System.out.println("********MENU*********");
 			System.out.println("*   1 - Jogar       *");
-			System.out.println("*   2 - Pontuação   *");
-			System.out.println("*   3 - Creditos    *");
-			System.out.println("*   4 - Sair        *");
+			System.out.println("*   2 - Creditos    *");
+			System.out.println("*   3 - Sair        *");
 			System.out.println("*********************\n");
 			System.out.print("Digite a opção que deseja: ");
 			opcaoDigitada = sc.nextInt();
@@ -30,26 +27,13 @@ public class projetoPI {
 				System.out.println("Entrando no jogo...\n");
 				System.out.println(
 						"--------------------------------------------------------------------------------------------\n");
-				System.out.println(
-						"Em uma pequena fazenda, no interior de São Paulo vive uma pequena menina chamada Ana Clara.\n"
-								+ "De família humilde e simples Ana Clara tem o sonho de se tornar uma matemática, para que assim possa ajudar seus pais "
-								+ "administrar sua pequena fazenda.\n"
-								+ "Como seus pais não tem condições de ajuda-la nos estudos, ela vai em um concurso de sua cidade para tentar adquirir uma bolsa na cidade de São Paulo.\n"
-								+ "Finalmente Chega o dia do Concurso para ganhar a bolsa de estudos, todos de suas cidades estão participando mas Ana Clara não se atinge com isso.\n");
-				System.out.println(
-						"--------------------------------------------------------------------------------------------\n");
-				System.out.println("O desafio começou...\n" + "A vida acadêmica de Ana Clara está em suas mãos...\n"
-						+ "Acerte o desafio e Ana Clara finalmente iniciará sua jornada.\n");
-
 				break;
+				
 			case 2:
-				System.out.println("Mostrando sua pontuação...\n");
-				break;
-			case 3:
 				System.out.println(
 						"Desenvolvedores: Brenno Costa Messias, Deivid Cordeiro Gomes, Juan Gonçalves Dias.\n");
 				break;
-			case 4:
+			case 3:
 				System.out.println("Saindo do jogo");
 				break;
 
@@ -63,6 +47,16 @@ public class projetoPI {
 	}
 
 	static void historia() {
+		System.out.println(
+				"Em uma pequena fazenda, no interior de São Paulo vive uma pequena menina chamada Ana Clara.\n"
+						+ "De família humilde e simples Ana Clara tem o sonho de se tornar uma matemática, para que assim possa ajudar seus pais "
+						+ "administrar sua pequena fazenda.\n"
+						+ "Como seus pais não tem condições de ajuda-la nos estudos, ela vai em um concurso de sua cidade para tentar adquirir uma bolsa na cidade de São Paulo.\n"
+						+ "Finalmente Chega o dia do Concurso para ganhar a bolsa de estudos, todos de suas cidades estão participando mas Ana Clara não se atinge com isso.\n");
+		System.out.println(
+				"--------------------------------------------------------------------------------------------\n");
+		System.out.println("O desafio começou...\n" + "A vida acadêmica de Ana Clara está em suas mãos...\n"
+				+ "Acerte o desafio e Ana Clara finalmente iniciará sua jornada.\n");
 		System.out.println("O desafio está próximo, se prepare com tudo que tem parar ajudar Ana Clara\n");
 		System.out.println("Muitos participantes tentaram e não conseguiram\nAgora é sua vez...\n");
 		System.out.println(
@@ -229,7 +223,6 @@ public class projetoPI {
 				break;
 			case 3:
 				System.out.println("RESPOSTA CORRETA");
-				System.out.println("Muito bem, agora continue sua jornada.\n");
 				System.out.println(
 						"--------------------------------------------------------------------------------------------\n");
 				break;
