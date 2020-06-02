@@ -279,12 +279,13 @@ public class projetoPI {
 	static boolean segundoDesafio() {
 		int resposta;
 		boolean acertou = true;
+		System.out.println("----------------ATENÇÃO------------------");
 		System.out.println("O desafio faz parte da materia de PROPRIEDADES DE POTENCIAÇÃO, esteja bem preparado\n");
 		System.out.println("Qual a resposta da potenciação abaixo:\n");
 		System.out.println("(a^3 * b^3 * b^7 * a^6) / (b^3 * a^5)\n");
 		System.out.println("1 - A: a^4*b^7");
 		System.out.println("2 - B: b^8*a^2");
-		System.out.println("3 - C: a^7*b^4");
+		System.out.println("3 - C: a^7*b^4\n");
 		System.out.print("Digite a resposta: ");
 			resposta = sc.nextInt();
 		System.out.println("");
@@ -358,16 +359,17 @@ public class projetoPI {
 		boolean acertou = true;
 		
 		System.out.println("Ajude a Ana Clara a dividir certo a comida dos animais.\n");
+		System.out.println("----------------ATENÇÃO------------------");
 		System.out.println("O desafio pede que você saiba divisão, esteja bem preparado\n");
 		System.out.println(
 				"--------------------------------------------------------------------------------------------\n");
 		System.out.println("Os alimentos precisam ser dividos de forma certa:\n");
 		System.out.println("Tem 3 sacos de 100kg de ração para patos, que tambem pode ser usado para alimentar as galinhas. Os patos comem em média 2kg de ração por dia\n"
 				+ "ao todo são 4 patos. As galinhas comem em média 1kg de ração por dia e ao todo tem 10 galinhas. Divida o tanto de ração para os patos e as galinhas para\n"
-				+ " sete dias.? E quanto irá sobrar para a semana seguinte.?");
+				+ " sete dias.? E quanto irá sobrar para a semana seguinte.?\n");
 		System.out.println("1 - A: 80kg patos - 35kg galinhas - sobra 185 kg para a semana seguinte.");
 		System.out.println("2 - B: 56kg patos - 70kg galinhas - sobra 174 kg para a semana seguinte.");
-		System.out.println("3 - C: 40kg patos - 50kg galinhas - sobra 210 kg para a semana seguinte. ");
+		System.out.println("3 - C: 40kg patos - 50kg galinhas - sobra 210 kg para a semana seguinte.\n");
 		System.out.print("Digite a resposta: ");
 			resposta = sc.nextInt();
 		System.out.println("");
@@ -426,7 +428,9 @@ public class projetoPI {
 		}if (segundoDesafio() == true) {
 			historiaTerceiroDesafio();
 		}
-		
+		if(terceiroDesafio() == true) {
+			System.out.println("MANUTENÇÃO");
+		}
 		
 		
 
