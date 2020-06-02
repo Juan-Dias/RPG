@@ -331,6 +331,87 @@ public class projetoPI {
 		
 		return acertou;
 	}
+
+	static void historiaTerceiroDesafio() {
+		System.out.println("Após provar o seu valor para seus colegas de classe, Ana Clara finalmente tem o respeito deles, agora ela conseguirá se enturmar.\n"
+				+ "Que antes uma menina sozinha e excluída."
+				+ "Depois que todos viram o quão inteligente Ana Clara era, rapidamente todos começaram a ir até ela pedindo ajuda, em seus exercicíos, em suas provas e atividades\n"
+				+ "aos pouco ela ficava popular em sua sala de aula.");
+		System.out.println(
+				"--------------------------------------------------------------------------------------------\n");
+		System.out.println("Depois de um semestre conturbado, a tão esperadaa férias chega. E Ana Clara volta para seu lar para reencontrar seus pais, e falar como tinha sido\n"
+				+ "aquela experiência de morar fora e estudar a matéria que era sua paixão."
+				+ "Chegando em casa, todos a esperam com uma imensa saudade, Ana Clara se emociona em ver seus pais depois de tanto tempo distante.\n"
+				+ "Após as saudações, ela explica como tinha sido difícil viver aqueles dias de solidão e tormentos de seus colegas de classe, mas ela fala que após um deles\n"
+				+ "desafiar ela. Ela pode provar seu valor e ganhar o respeito de todos que zoavam ela.\n"
+				+ "E que depois daquilo se tornou mais facíl o convivio em sala e os estudos ficaram agradaveis novamente.\n");
+		System.out.println("No dia seguinte, Ana acordou mais cedo do que o acostumado, ela foi bem cedo para a fazenda de seus pais. Para ver como que eles estavam indo sem\n"
+				+ "a ajuda dela, chegado lá ela percebeu que tudo estava um caos. O estoque de comida estava tudo errado, seus pais não estavam sabendo racionalizar de forma\n"
+				+ "padronizada, então alguns animais teriam mais comidas que os outros.");
+		System.out.println(
+				"--------------------------------------------------------------------------------------------\n");
+		
+	}
+	
+	static boolean terceiroDesafio() {
+		int resposta;
+		boolean acertou = true;
+		
+		System.out.println("Ajude a Ana Clara a dividir certo a comida dos animais.\n");
+		System.out.println("O desafio pede que você saiba divisão, esteja bem preparado\n");
+		System.out.println(
+				"--------------------------------------------------------------------------------------------\n");
+		System.out.println("Os alimentos precisam ser dividos de forma certa:\n");
+		System.out.println("Tem 3 sacos de 100kg de ração para patos, que tambem pode ser usado para alimentar as galinhas. Os patos comem em média 2kg de ração por dia\n"
+				+ "ao todo são 4 patos. As galinhas comem em média 1kg de ração por dia e ao todo tem 10 galinhas. Divida o tanto de ração para os patos e as galinhas para\n"
+				+ " sete dias.? E quanto irá sobrar para a semana seguinte.?");
+		System.out.println("1 - A: 80kg patos - 35kg galinhas - sobra 185 kg para a semana seguinte.");
+		System.out.println("2 - B: 56kg patos - 70kg galinhas - sobra 174 kg para a semana seguinte.");
+		System.out.println("3 - C: 40kg patos - 50kg galinhas - sobra 210 kg para a semana seguinte. ");
+		System.out.print("Digite a resposta: ");
+			resposta = sc.nextInt();
+		System.out.println("");
+			
+			switch (resposta) {
+			case 1:
+				System.out.println("RESPOSTA INCORRETA\n");
+				System.out.println(
+						"--------------------------------------------------------------------------------------------\n");
+				break;
+			case 2:
+				System.out.println("RESPOSTA CORRETA\n");
+				System.out.println("Muito bem, agora continue sua jornada.\n");
+				System.out.println(
+						"--------------------------------------------------------------------------------------------\n");
+				break;
+			case 3:
+				System.out.println("RESPOSTA INCORRETA\n");
+				System.out.println(
+						"--------------------------------------------------------------------------------------------\n");
+
+				break;
+
+			default:
+				System.out.println("Opção Inválida");
+				break;
+			}
+			
+			if (resposta == 2) {
+				acertou = resposta == 2;
+			} else {
+				System.out.println("*************************************************");
+				System.out.println("*************************************************");
+				System.out.println("*************************************************");
+				System.out.println("********************GAME OVER********************");
+				System.out.println("*************************************************");
+				System.out.println("*************************************************");
+				System.out.println("*************************************************\n\n");
+				menu();
+			}
+		
+		
+		return acertou;
+	}
 	
 	public static void main(String[] args) {
 
@@ -343,8 +424,9 @@ public class projetoPI {
 		if (primeiroDesafio() == true) {
 			historiaSegundoDesafio();
 		}if (segundoDesafio() == true) {
-			System.out.println("EM MANUTENÇÃO");
+			historiaTerceiroDesafio();
 		}
+		
 		
 		
 
