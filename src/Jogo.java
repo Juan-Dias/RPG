@@ -3,6 +3,116 @@ import java.util.Scanner;
 public class projetoPI {
 	static Scanner sc = new Scanner(System.in);
 
+	static int qtdPerguntasDesafio5 = 4;
+
+	static String lerOpcoes() {
+		String opcaoLida, opcaoLidaMaiuscula;
+
+		System.out.print("Digite a opção: ");
+		opcaoLida = sc.next();
+		opcaoLidaMaiuscula = opcaoLida.toUpperCase();
+		System.out.println("");
+
+		return opcaoLidaMaiuscula;
+	}
+
+	static int[] montagemVetorAleatorio() {
+		int[] vetorAleatorio = new int[qtdPerguntasDesafio5];
+
+		int posicao1, posicao2, temp;
+		Random rd = new Random();
+
+		for (int i = 0; i < vetorAleatorio.length; i++) {
+			vetorAleatorio[i] = i;
+
+		}
+
+		for (int i = 0; i < 4; i++) {
+			posicao1 = rd.nextInt(vetorAleatorio.length);
+			posicao2 = rd.nextInt(vetorAleatorio.length);
+
+			temp = vetorAleatorio[posicao1];
+			vetorAleatorio[posicao1] = vetorAleatorio[posicao2];
+			vetorAleatorio[posicao2] = temp;
+
+		}
+		return vetorAleatorio;
+	}
+
+	static String montagemPergunta(int Pergunta) {
+
+		String retorno = "";
+
+		retorno = retorno + obtemPergunta(Pergunta);
+		retorno = retorno + "\n";
+		String[] vetOp = obtemOpcao(Pergunta);
+
+		for (int j = 0; j < 5; j++) {
+			retorno = retorno + vetOp[j] + "\n";
+
+		}
+
+		return retorno;
+	}
+
+	static String obtemPergunta(int Pergunta) {
+		String[] vetorPergunta = new String[qtdPerguntasDesafio5];
+
+		vetorPergunta[0] = "A maior raiz da equação – 2x² + 3x + 5 = 0 vale:";
+		vetorPergunta[1] = "AS SOLUÇÕES DA EQUAÇÃO 2X2 - 3X + 1 = 0, SÃO:?";
+		vetorPergunta[2] = "Qual a resposta da equação 30-20+2x=10?";
+		vetorPergunta[3] = "Qual a resposta da equação 10x-20=40+50?";
+
+		return vetorPergunta[Pergunta];
+	}
+
+	static String[] obtemOpcao(int Pergunta) {
+		String[] vetorOpcoes = new String[5];
+		String[][] matrizOpcoes = new String[qtdPerguntasDesafio5][5];
+
+		matrizOpcoes[0][0] = "A - -1";
+		matrizOpcoes[0][1] = "B - 1";
+		matrizOpcoes[0][2] = "C - 2";
+		matrizOpcoes[0][3] = "D - 2,5";
+		matrizOpcoes[0][4] = "E - (3 + √19)/4";
+
+		matrizOpcoes[1][0] = "A -  X1 = 2, X2 = 1";
+		matrizOpcoes[1][1] = "B - X1 = 16, X2 = 8";
+		matrizOpcoes[1][2] = "C - X1 = -1, X2 = - 0,5";
+		matrizOpcoes[1][3] = "D - X1 = 0, X2 = 2";
+		matrizOpcoes[1][4] = "E - X1 = 1, X2 = 0,5";
+
+		matrizOpcoes[2][0] = "A - 3";
+		matrizOpcoes[2][1] = "B - 4";
+		matrizOpcoes[2][2] = "C - 8";
+		matrizOpcoes[2][3] = "D - 0";
+		matrizOpcoes[2][4] = "E - 1";
+
+		matrizOpcoes[3][0] = "A - 12";
+		matrizOpcoes[3][1] = "B - 11";
+		matrizOpcoes[3][2] = "C - 10";
+		matrizOpcoes[3][3] = "D - 9";
+		matrizOpcoes[3][4] = "E - 3";
+
+		for (int i = 0; i < 5; i++) {
+			vetorOpcoes[i] = matrizOpcoes[Pergunta][i];
+		}
+
+		return vetorOpcoes;
+	}
+
+	static String respostaCorreta(int Pergunta) {
+		String[] vetorRespostasCorretas = new String[qtdPerguntasDesafio5];
+		vetorRespostasCorretas[0] = "D";
+		vetorRespostasCorretas[1] = "E";
+		vetorRespostasCorretas[2] = "D";
+		vetorRespostasCorretas[3] = "B";
+
+		return vetorRespostasCorretas[Pergunta];
+	}
+
+	// Funções desafio 5 - randomizado
+
 	static int menu() {
 
 		System.out.println(" ");
@@ -114,13 +224,13 @@ public class projetoPI {
 		System.out.println("O desafio está próximo, se prepare com tudo que tem parar ajudar Ana Clara \n");
 		Thread.sleep(1500);
 		System.out.println("Muitos participantes tentaram e não conseguiram \n\n");
-		Thread.sleep(1500);
-		System.out.println("Agora é sua vez...\n\n");
 		Thread.sleep(2000);
+		System.out.println("Agora é sua vez...\n\n");
+		Thread.sleep(3000);
 		System.out.println(
 				"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
 		System.out.println("Abaixo você fará o questionario para ganhar bolsa: \n");
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 		System.out.println("BOA SORTE, VOCÊ PRECISARÁ!!! \n\n\n\n");
 		Thread.sleep(3000);
 
@@ -130,7 +240,7 @@ public class projetoPI {
 
 		int j = 4;
 		int resposta1 = 0, resposta2 = 0, resposta3 = 0;
-		boolean acertou = true;
+		boolean acertou = true, errou = false;
 
 		for (int i = 0; i < 3; i++) {
 
@@ -229,8 +339,9 @@ public class projetoPI {
 		}
 
 		if ((resposta1 == 2) && (resposta2 == 390625) && (resposta3 == 1)) {
-			acertou = (resposta1 == 2) && (resposta2 == 390625) && (resposta3 == 1);
+			return acertou;
 		} else {
+
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -238,11 +349,10 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-			menu();
+			return errou;
 
 		}
 
-		return acertou;
 	}
 
 	static void historiaPrimeiroDesafio(String[] args) throws InterruptedException {
@@ -276,10 +386,11 @@ public class projetoPI {
 
 	static boolean primeiroDesafio() {
 
-		boolean acertou = true;
-		int primeiroDesafio = 0, resposta1Desafio = 0, i = 0, j = 4;
+		boolean acertou = true, errou = false;
+		int resposta1Desafio = 0, j = 4;
 
-		while (primeiroDesafio < 3) {
+		for (int i = 0; i < 3; i++) {
+
 			System.out.println("Você terá somente " + (j -= 1) + " tentativas para acertar o desafio !! \n\n");
 			System.out.println("Descubra como é 500(decimal) em Hexadecimal: ");
 			System.out.println("1 = A - 190 ");
@@ -324,10 +435,11 @@ public class projetoPI {
 						"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
 				break;
 			}
-			i++;
+
 		}
+
 		if (resposta1Desafio == 3) {
-			acertou = resposta1Desafio == 3;
+			return acertou;
 		} else {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -336,11 +448,10 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-			menu();
+			return errou;
 
 		}
 
-		return acertou;
 	}
 
 	static void historiaSegundoDesafio(String[] args) throws InterruptedException {
@@ -371,7 +482,7 @@ public class projetoPI {
 
 	static boolean segundoDesafio() {
 		int resposta;
-		boolean acertou = true;
+		boolean acertou = true, errou = false;
 
 		System.out.println("\n");
 		System.out.println(
@@ -413,7 +524,7 @@ public class projetoPI {
 		}
 
 		if (resposta == 1) {
-			acertou = resposta == 1;
+			return acertou;
 		} else {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -422,10 +533,9 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-			menu();
+			return errou;
 		}
 
-		return acertou;
 	}
 
 	static void historiaTerceiroDesafio(String[] args) throws InterruptedException {
@@ -493,7 +603,7 @@ public class projetoPI {
 
 	static boolean terceiroDesafio() {
 		int resposta;
-		boolean acertou = true;
+		boolean acertou = true, errou = false;
 
 		System.out.println(
 				"Tem 3 sacos de 100kg de ração para patos, que tambem pode ser usado para alimentar as galinhas.");
@@ -533,7 +643,7 @@ public class projetoPI {
 		}
 
 		if (resposta == 2) {
-			acertou = resposta == 2;
+			return acertou;
 		} else {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -542,10 +652,9 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-
+			return errou;
 		}
 
-		return acertou;
 	}
 
 	static void historiaQuartoDesafio(String[] args) throws InterruptedException {
@@ -578,7 +687,7 @@ public class projetoPI {
 	static boolean quartoDesafio(String[] args) throws InterruptedException {
 		long start = System.currentTimeMillis();
 		int resposta;
-		boolean acertou = true;
+		boolean acertou = true, errou = false;
 
 		System.out.println("Acerte todas perguntas para continuar a jornada.\n\n");
 		Thread.sleep(1500);
@@ -689,9 +798,8 @@ public class projetoPI {
 		}
 
 		if ((resposta == 1728) && (resposta2_2Q_P1 == 16) && (resposta2_2Q_P2 == (-16)) && (resposta1_3Q == 72)
-				&& (resposta2_3Q == 142)) {
-			acertou = (resposta == 1728) && (resposta2_2Q_P1 == 16) && (resposta2_2Q_P2 == (-16))
-					&& (resposta1_3Q == 72) && (resposta2_3Q == 142);
+				&& (resposta2_3Q == 142 && (resposta1_4Q == 111000010) && (resposta2_4Q == 1111010111))) {
+			return acertou;
 		} else {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -700,10 +808,9 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-
+			return errou;
 		}
 
-		return acertou;
 	}
 
 	static void historiaQuintoDesafio(String[] args) throws InterruptedException {
@@ -736,55 +843,39 @@ public class projetoPI {
 
 	static boolean quintoDesafio() {
 		System.out.println("Utilize todo o conhecimento adquirido até agora para realizar este desafio.");
-		int resposta;
-		boolean acertou = true;
+		int resposta = 0;
+		boolean acertou = true, errou = false;
 
-		System.out.println("Faça o teste para continuar o jogo.\n\n");
-		System.out.println(
-				"---------------------------------------------------------ATENÇÃO--------------------------------------------------------------------------- \n\n");
-		System.out.println("Caso não consiga realizar o teste, o jogo irar ser reiniciado. \n\n");
-		System.out.println(
-				"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
-		System.out.println("Os alimentos precisam ser dividos de forma certa: \n\n");
-		System.out.println(
-				"Tem 3 sacos de 100kg de ração para patos, que tambem pode ser usado para alimentar as galinhas.");
-		System.out.println("Os patos comem em média 2kg de ração por dia, ao todo são 4 patos.");
-		System.out.println("As galinhas comem em média 1kg de ração por dia, ao todo são 10 galinhas.");
-		System.out.println("Divida o tanto de ração para os patos e as galinhas para sete dias? ");
-		System.out.println("E quanto irá sobrar para a semana seguinte? \n");
-		System.out.println("1 - A: 80kg patos - 35kg galinhas - sobra 185 kg para a semana seguinte.");
-		System.out.println("2 - B: 56kg patos - 70kg galinhas - sobra 174 kg para a semana seguinte.");
-		System.out.println("3 - C: 40kg patos - 50kg galinhas - sobra 210 kg para a semana seguinte.");
-		System.out.print("Digite a resposta: ");
-		resposta = sc.nextInt();
-		System.out.println("\n");
+		int[] vetorAleatoario;
+		String opcao, opcaoCorreta;
 
-		switch (resposta) {
-		case 1:
-			System.out.println("RESPOSTA INCORRETA \n\n");
-			System.out.println(
-					"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
-			break;
-		case 2:
-			System.out.println("RESPOSTA CORRETA\n");
-			System.out.println("Muito bem, agora continue sua jornada. \n\n");
-			System.out.println(
-					"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
-			break;
-		case 3:
-			System.out.println("RESPOSTA INCORRETA \n\n");
-			System.out.println(
-					"------------------------------------------------------------------------------------------------------------------------------------------- \n\n");
+		
 
-			break;
+		vetorAleatoario = montagemVetorAleatorio();
 
-		default:
-			System.out.println("Opção Inválida");
-			break;
+		for (int i = 0; i < vetorAleatoario.length; i++) {
+
+			System.out.println((i + 1) + ") " + montagemPergunta(vetorAleatoario[i]));
+			opcao = lerOpcoes();
+			opcaoCorreta = respostaCorreta(vetorAleatoario[i]);
+
+			if (opcao.equals(opcaoCorreta)) {
+				resposta = 0;
+				System.out.println("RESPOSTA CERTA \n\n");
+				System.out.println(
+						"-------------------------------------------------------------------------------------------------------------------------------------------\n");
+			} else {
+				resposta = 1;
+				System.out.println("RESPOSTA INCORRETA \n\n");
+				System.out.println(
+						"-------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+			}
 		}
 
-		if (resposta == 2) {
-			acertou = resposta == 2;
+		if (resposta == 0) {
+			
+			return acertou;
 		} else {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
@@ -793,55 +884,62 @@ public class projetoPI {
 			System.out.println("*************************************************");
 			System.out.println("*************************************************");
 			System.out.println("*************************************************\n\n");
-
+			return errou;
 		}
 
-		return true;
 	}
 
 	static void historiaSextoDesafio(String[] args) throws InterruptedException {
 		long start = System.currentTimeMillis();
 		Thread.sleep(3000);
+		
+		
+		System.out.println("FINAL DE JOGO - EM MANUTENÇÃO");
 
 	}
 
-	static boolean sextoDesafio() {
-
-		return true;
-	}
-
+	
 	public static void main(String[] args) throws InterruptedException {
 
 		if (menu() == 1) {
+
 			historia(args);
 
 			if (questionario() == true) {
 
 				historiaPrimeiroDesafio(args);
-			}
+				if (primeiroDesafio() == true) {
+					historiaSegundoDesafio(args);
+					if (segundoDesafio() == true) {
+						historiaTerceiroDesafio(args);
+						if (terceiroDesafio() == true) {
+							historiaQuartoDesafio(args);
+							if (quartoDesafio(args) == true) {
+								historiaQuintoDesafio(args);
+								if (quintoDesafio() == true) {
+									historiaSextoDesafio(args);
+								} else {
 
-			if (primeiroDesafio() == true) {
-				historiaSegundoDesafio(args);
-			}
+								}
 
-			if (segundoDesafio() == true) {
-				historiaTerceiroDesafio(args);
-			}
+							} else {
 
-			if (terceiroDesafio() == true) {
-				historiaQuartoDesafio(args);
-			}
+							}
 
-			if (quartoDesafio(args) == true) {
-				historiaQuintoDesafio(args);
-			}
+						} else {
 
-			if (quintoDesafio() == true) {
-				historiaSextoDesafio(args);
-			}
+						}
 
-			if (sextoDesafio() == true) {
-				System.out.println("***EM MANUTENÇÃO***");
+					} else {
+
+					}
+
+				} else {
+
+				}
+
+			} else {
+
 			}
 
 		} else {
