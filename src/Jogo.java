@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class projetoPI {
@@ -62,6 +63,9 @@ public class projetoPI {
 		vetorPergunta[1] = "AS SOLUÇÕES DA EQUAÇÃO 2X2 - 3X + 1 = 0, SÃO:?";
 		vetorPergunta[2] = "Qual a resposta da equação 30-20+2x=10?";
 		vetorPergunta[3] = "Qual a resposta da equação 10x-20=40+50?";
+		vetorPergunta[4] = "EM MANUTENÇÃO";
+		vetorPergunta[5] = "EM MANUTENÇÃO";
+
 
 		return vetorPergunta[Pergunta];
 	}
@@ -93,6 +97,18 @@ public class projetoPI {
 		matrizOpcoes[3][2] = "C - 10";
 		matrizOpcoes[3][3] = "D - 9";
 		matrizOpcoes[3][4] = "E - 3";
+		
+		matrizOpcoes[4][0] = "MANUTENCÃO";
+		matrizOpcoes[4][1] = "MANUTENCÃO";
+		matrizOpcoes[4][2] = "MANUTENCÃO";
+		matrizOpcoes[4][3] = "MANUTENCÃO";
+		matrizOpcoes[4][4] = "MANUTENCÃO";
+		
+		matrizOpcoes[5][0] = "MANUTENCÃO";
+		matrizOpcoes[5][1] = "MANUTENCÃO";
+		matrizOpcoes[5][2] = "MANUTENCÃO";
+		matrizOpcoes[5][3] = "MANUTENCÃO";
+		matrizOpcoes[5][4] = "MANUTENCÃO";
 
 		for (int i = 0; i < 5; i++) {
 			vetorOpcoes[i] = matrizOpcoes[Pergunta][i];
@@ -107,6 +123,8 @@ public class projetoPI {
 		vetorRespostasCorretas[1] = "E";
 		vetorRespostasCorretas[2] = "D";
 		vetorRespostasCorretas[3] = "B";
+		vetorRespostasCorretas[4] = "MANUTENÇÃO";
+		vetorRespostasCorretas[5] = "MANUTENÇÃO";
 
 		return vetorRespostasCorretas[Pergunta];
 	}
@@ -145,7 +163,7 @@ public class projetoPI {
 			System.out.println("                                         ***********************");
 			System.out.println("                                         *  _________________  *");
 			System.out.println("                                         * |                 | *");
-			System.out.println("                                         * |    NomeJogo     | *");
+			System.out.println("                                         * |        | *");
 			System.out.println("                                         * |_________________| *");
 			System.out.println("                                         *  _________________  *");
 			System.out.println("                                         * |                 | *");
@@ -849,7 +867,81 @@ public class projetoPI {
 		int[] vetorAleatoario;
 		String opcao, opcaoCorreta;
 
-		
+		vetorAleatoario = montagemVetorAleatorio();
+
+		for (int i = 0; i < vetorAleatoario.length; i++) {
+
+			System.out.println((i + 1) + ") " + montagemPergunta(vetorAleatoario[i]));
+			opcao = lerOpcoes();
+			opcaoCorreta = respostaCorreta(vetorAleatoario[i]);
+
+			if (opcao.equals(opcaoCorreta)) {
+				resposta = 0;
+				System.out.println("RESPOSTA CERTA \n\n");
+				System.out.println(
+						"-------------------------------------------------------------------------------------------------------------------------------------------\n");
+			} else {
+				resposta = 1;
+				System.out.println("RESPOSTA INCORRETA \n\n");
+				System.out.println(
+						"-------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+			}
+		}
+
+		if (resposta == 0) {
+
+			return acertou;
+		} else {
+			System.out.println("*************************************************");
+			System.out.println("*************************************************");
+			System.out.println("*************************************************");
+			System.out.println("********************GAME OVER********************");
+			System.out.println("*************************************************");
+			System.out.println("*************************************************");
+			System.out.println("*************************************************\n\n");
+			return errou;
+		}
+
+	}
+
+	static void historiaSextoDesafio(String[] args) throws InterruptedException {
+		long start = System.currentTimeMillis();
+		Thread.sleep(3000);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
+		System.out.println("Parabéns por ter chegado até aqui !!");
+		Thread.sleep(1500);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
+		System.out.println("Foi um ano difícil e complicado para Ana Clara./n");
+		Thread.sleep(1500);
+		System.out.println("Mais isso ainda não acabou, o verdadeiro desafio ainda está por vir./n");
+		Thread.sleep(1500);
+		System.out.println("Depois de muitos momento de tristezas e alegrias em sua história, Ana Clara se tornou cada vez mais forte./n");
+		Thread.sleep(1500);
+		System.out.println("E a cada desafio seu sonho em se tornar uma matemática aumenta, junto com sua capacidade de ser melhor./n");
+		Thread.sleep(1500);
+		System.out.println("Não desisitir no primeiro obstáculo ou na primeira difículade, foi muito importante para o crescimento de Ana./n");
+		Thread.sleep(1500);
+		System.out.println("A cada desafio, a cada momento ela foi se superando e se aperfeiçoando para chegar até aqui./n");
+		Thread.sleep(1500);
+		System.out.println("Chegou o momento do ultímo desafio, para saber se realmente Ana vai conseguir passar no seu primeiro ano de faculdade./n");
+		Thread.sleep(1500);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
+		System.out.println("O ultímo desafio te espera !!/n");
+		Thread.sleep(1500);
+		System.out.println("Calma e traquilidade serão essenciais para esse momento/n");
+		Thread.sleep(1500);
+		System.out.println("A vida academíca de Ana está em suas mãos./n");
+		Thread.sleep(1500);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
+	}
+	static boolean sextoDesafio() {
+		System.out.println("Utilize todo o conhecimento adquirido até agora para realizar este desafio.");
+		int resposta = 0;
+		boolean acertou = true, errou = false;
+
+		int[] vetorAleatoario;
+		String opcao, opcaoCorreta;
 
 		vetorAleatoario = montagemVetorAleatorio();
 
@@ -874,7 +966,7 @@ public class projetoPI {
 		}
 
 		if (resposta == 0) {
-			
+
 			return acertou;
 		} else {
 			System.out.println("*************************************************");
@@ -889,16 +981,20 @@ public class projetoPI {
 
 	}
 
-	static void historiaSextoDesafio(String[] args) throws InterruptedException {
+	static void consideracoesFinais(String[] args) throws InterruptedException {
 		long start = System.currentTimeMillis();
 		Thread.sleep(3000);
-		
-		
-		System.out.println("FINAL DE JOGO - EM MANUTENÇÃO");
-
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
+		System.out.println("Nós do grupo 7, gostariamos de agradecer e parabenizar aqueles que conseguiram finalizar nosso jogo.");
+		Thread.sleep(1500);
+		System.out.println("Tinhamos como objetivo tentar mostrar ao maxímo como é a real vida de um universitário.");
+		Thread.sleep(1500);
+		System.out.println("Mostrar os problemas e dificuldades que podem vir a acontecer na vida do personagem, mas espelhando a nossa.");
+		Thread.sleep(1500);
+		System.out.println("Esperamos ter atingindo as expectativas do professor e cumprir com oque havimos promedito.");
+		Thread.sleep(1500);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
 	}
-
-	
 	public static void main(String[] args) throws InterruptedException {
 
 		if (menu() == 1) {
@@ -918,6 +1014,9 @@ public class projetoPI {
 								historiaQuintoDesafio(args);
 								if (quintoDesafio() == true) {
 									historiaSextoDesafio(args);
+									if(sextoDesafio() == true) {
+										consideracoesFinais(args);
+									}
 								} else {
 
 								}
@@ -940,8 +1039,8 @@ public class projetoPI {
 
 			} else {
 
-			}
-
+			} 
+				
 		} else {
 			System.out.println("***JOGO FINALIZADO***");
 		}
